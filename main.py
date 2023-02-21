@@ -16,8 +16,10 @@ with st.container(): #banner and header
 
 with st.container(): # all videos robin2bin official mail
     st.subheader("Robin2bin official mail Uploads")
+    view_link = pd.DataFrame(pd.read_csv("Robin2bin_official_mail.csv"))
     data = pd.DataFrame(pd.read_csv("Robin2bin_official_mail_edited.csv"))
-    links = data['Links']
+    links = view_link['Links']
+    opener = 'https://www.youtube.com/watch?v='
     title = data['Video_title']
     likes = data['Likes']
     views = data['Views']
@@ -30,7 +32,7 @@ with st.container(): # all videos robin2bin official mail
         for c in range(rangeA,rangeB):
             with cols[s]:
                 st.image(thumbnails[c])
-                st.write("[" + title[c] + "]" + "(" + links[c] + ")")
+                st.write("[" + title[c] + "]" + "(" + opener + links[c] + ")")
                 st.write(":eye-in-speech-bubble: " + str(views[c]) + "	:thumbsup: " + str(likes[c]))
             s += 1
         rangeA = rangeB
@@ -39,8 +41,10 @@ with st.container(): # all videos robin2bin official mail
 
 with st.container(): # all videos of robin2bin
     st.subheader("Robin2bin Uploads")
+    view_link = pd.DataFrame(pd.read_csv("Robin2bin.csv"))
     data = pd.DataFrame(pd.read_csv("Robin2bin_edited.csv"))
-    links = data['Links']
+    links = view_link['Links']
+    opener = 'https://www.youtube.com/watch?v='
     title = data['Video_title']
     likes = data['Likes']
     views = data['Views']
@@ -53,7 +57,7 @@ with st.container(): # all videos of robin2bin
         for c in range(rangeA,rangeB):
             with cols[s]:
                 st.image(thumbnails[c])
-                st.write("[" + title[c] + "]" + "(" + links[c] + ")")
+                st.write("[" + title[c] + "]" + "(" + opener + links[c] + ")")
                 st.write(":eye-in-speech-bubble: " + str(views[c]) + "	:thumbsup: " + str(likes[c]))
             s += 1
         rangeA = rangeB
