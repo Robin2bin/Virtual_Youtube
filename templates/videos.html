@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Videos</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        .grid-item {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+        .video-name {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>YouTube Videos</h1>
+    <div class="grid-container">
+        {% for video_id, link, name, thumbnail_url in video_links %}
+            <div class="grid-item">
+                <a href="/video/{{ video_id }}">
+                    <img class="video-thumbnail" src="{{ thumbnail_url }}" alt="Video thumbnail">
+                    <div><a class="video-name">{{ name }}</a></div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
